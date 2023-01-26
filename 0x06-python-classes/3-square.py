@@ -1,18 +1,30 @@
 #!/usr/bin/python3
 class Square:
-    """ class square defines a square by size:
-    size must be an integer
-    size must not be negative """
+    """ A class that defines a square
+
+    Attributes:
+        size (obj,'int'): size of the square
+    """
+
     def __init__(self, size=0):
-        """ initialize square objects,
-        sets size equal to 0 by default,
-        checks if size has the correct type and value """
+        """ Initializes square class
+
+        Args:
+            size (obj:'int') size of the square
+        """
         if type(size) is not int:
             raise TypeError("size must be an integer")
-        elif size < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        """ Only positive integers allowed for attribute size
 
+        """
+        self.__size = size
+        """ Set private attribute of square size to var size
+
+        """
     def area(self):
+        """ Defines area of square object
+
+        """
         return self.__size ** 2
