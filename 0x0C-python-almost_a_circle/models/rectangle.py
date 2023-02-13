@@ -86,7 +86,7 @@ class Rectangle(Base):
         """ string representation of the rectangle """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         updates the instance attributes:
         1st argument should be the id attribute
@@ -109,3 +109,6 @@ class Rectangle(Base):
                     self.x = a
                 if count == 5:
                     self.y = a
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
