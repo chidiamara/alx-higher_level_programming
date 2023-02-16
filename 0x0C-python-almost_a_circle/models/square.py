@@ -44,3 +44,11 @@ class Square(Rectangle):
                 else:
                     newkwargs[k] = v
             super().update(**newkwargs)
+
+    def to_dictionary(self):
+        """ returns the dictionary representation of a Square """
+        ds = super().to_dictionary()
+        ds["size"] = ds["height"]
+        del ds["height"]
+        del ds["width"]
+        return ds
