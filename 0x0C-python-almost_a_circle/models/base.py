@@ -4,6 +4,7 @@ Module containing one class: "Base" which will be the base of all
 other classes in this project
 """
 import json
+import csv
 
 class Base:
     """
@@ -71,3 +72,23 @@ class Base:
                 return l
         except:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ writes attributes of list_objs to a csv file """
+        with open(cls.__name__ + ".csv", "w") as f:
+            cwriter = csv.writer(f, delimiter=',')
+            for obj in list_objs:
+                my_l = []
+                if cls.__name__ == "Rectangle":
+                    my_l.append(obj.id)
+                    my_l.append(obj.width)
+                    my_l.append(obj.height)
+                    my_l.append(obj.x)
+                    my_l.append(obj.y)
+                elif cls.__name__ == "Square":
+                    my_l.append(obj.id)
+                    my_l.append(obj.size)
+                    my_l.append(obj.x)
+                    my_l.append(obj.y)
+                cwriter.writerow(my_l)
