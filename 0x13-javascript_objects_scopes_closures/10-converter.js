@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 exports.converter = function (base) {
-    return (x) => {
+    return function (x) {
         return x.toString(base);
     };
 };
